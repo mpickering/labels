@@ -97,7 +97,7 @@ module Labels
   , Labels)
   where
 
-import Data.Proxy
+--import Data.Proxy
 import GHC.TypeLits
 import Labels.Internal
 

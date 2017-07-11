@@ -28,7 +28,7 @@
 
 module Labels.Internal where
 
-import Data.Data
+import Data.Data hiding (Proxy(..))
 import Data.String
 import GHC.Exts
 import GHC.TypeLits
@@ -61,9 +61,11 @@ instance (Show t) =>
 --------------------------------------------------------------------------------
 -- Labels
 
+data Proxy a = Proxy
+
 instance l ~ l' =>
          IsLabel (l :: Symbol) (Proxy l') where
-    fromLabel _ = Proxy
+    fromLabel = Proxy
     {-# INLINE fromLabel #-}
 
 instance IsString (Q Exp) where
